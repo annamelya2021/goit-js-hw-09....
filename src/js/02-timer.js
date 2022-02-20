@@ -42,7 +42,7 @@ const options = {
 
         convertMs(countTime);
       }
-      timerID = setInterval(time, 1000);
+      timerID = setInterval(time);
     });
   },
 };
