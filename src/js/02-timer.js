@@ -31,18 +31,18 @@ const options = {
       start = false;
       btnStart.setAttribute('disabled', true);
       alert('Please choose a date in the future');
+      return;
     }
     btnStart.removeAttribute('disabled', true);
     start = true;
     btnStart.addEventListener('click', function startTimer() {
+      btnStart.setAttribute('disabled', true);
+      input.setAttribute('disabled', true);
       function time() {
         let countTime = selectedDates[0].getTime() - Date.now();
-        btnStart.setAttribute('disabled', true);
-        input.setAttribute('disabled', true);
-
         convertMs(countTime);
       }
-      timerID = setInterval(time);
+      timerID = setInterval(time, 1000);
     });
   },
 };
