@@ -3,7 +3,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 
 let start = true; //
 
-// const input = document.querySelector('#datetime-picker');
+const input = document.querySelector('#datetime-picker');
 const btnStart = document.querySelector('[data-start]');
 const timer = document.querySelector('.timer');
 let timerID = null;
@@ -37,6 +37,9 @@ const options = {
     btnStart.addEventListener('click', function startTimer() {
       function time() {
         let countTime = selectedDates[0].getTime() - Date.now();
+        btnStart.setAttribute('disabled', true);
+        input.setAttribute('disabled', true);
+
         convertMs(countTime);
       }
       timerID = setInterval(time, 1000);
