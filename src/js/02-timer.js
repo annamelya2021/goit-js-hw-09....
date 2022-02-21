@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 let start = true; //
 
@@ -30,7 +31,7 @@ const options = {
     if (selectedDates[0] < new Date().getTime()) {
       start = false;
       btnStart.setAttribute('disabled', true);
-      alert('Please choose a date in the future');
+      Notify.failure('Please choose a date in the future');
       return;
     }
     btnStart.removeAttribute('disabled', true);
